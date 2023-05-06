@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "WeStock": {
+    "WeStock.App": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
