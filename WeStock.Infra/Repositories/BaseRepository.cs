@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WeStock.Domain;
+using WeStock.Domain.Entities;
 using WeStock.Domain.Repositories;
 
 namespace WeStock.Infra.Repositories
 {
-    public abstract class BaseRepository<TBase> : IBaseRepository<TBase> where TBase: class, IEntity
+    public abstract class BaseRepository<TBase> : IBaseRepository<TBase> where TBase: BaseEntity
     {
         private EntityContext _entityContext;
 
@@ -12,6 +13,14 @@ namespace WeStock.Infra.Repositories
         {
             _entityContext = entityContext;
         }
+        
+        public async Task<TBase> Add(TBase entity)
+        {
+            var dbSet = _entityContext.Set<TBase>();
+            var result = await dbSet.AddAsync(entity);
+            await _entityContext.SaveChangesAsync();
+            return result.Entity;
+        } 
 
         public Task<List<TBase>> GetAll()
         {
@@ -19,7 +28,7 @@ namespace WeStock.Infra.Repositories
             return dbSet.ToListAsync();
         }
 
-        public Task<TBase> GetById(object id)
+        public Task<TBase> GetById(long id)
         {
             var dbSet = _entityContext.Set<TBase>();
             return dbSet.FirstOrDefaultAsync(x => x.Id == id)!;
@@ -32,7 +41,7 @@ namespace WeStock.Infra.Repositories
             return await result;
         }
 
-        protected DbSet<T> GetTable<T>() where T: class, IEntity
+        protected DbSet<T> GetTable<T>() where T: BaseEntity
         {
             var dbSet = _entityContext.Set<T>();
             return dbSet;
@@ -44,5 +53,7 @@ namespace WeStock.Infra.Repositories
             var dbSet = _entityContext.Set<TBase>();
             return dbSet;
         }
+
+        
     }
 }

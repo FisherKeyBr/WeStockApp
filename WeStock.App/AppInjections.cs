@@ -25,12 +25,15 @@ namespace WeStock.App
         private static void RegisterRepositories(IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IMessageRepository, MessageRepository>();
             services.AddScoped<IStockMarketApi, AlphaVantageApi>();
         }
 
         private static void RegisterServices(IServiceCollection services)
         {
             services.AddScoped<UserService>();
+            services.AddScoped<MessageService>();
+            services.AddScoped<ChatBotService>();
         }
     }
 }

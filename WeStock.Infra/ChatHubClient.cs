@@ -20,6 +20,7 @@ namespace WeStock.Infra
 
         public async Task SendMessage(string message)
         {
+            Console.WriteLine(message);
             var result = await _chatBotService.GetClientMessage(message);
             await Clients.All.SendMessage(result);
         }

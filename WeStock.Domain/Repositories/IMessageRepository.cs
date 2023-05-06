@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeStock.Domain.Entities;
 
-namespace WeStock.Domain
+namespace WeStock.Domain.Repositories
 {
-    public interface IEntity
+    public interface IMessageRepository : IBaseRepository<Message>
     {
-        object Id { get; set; }
     }
 }

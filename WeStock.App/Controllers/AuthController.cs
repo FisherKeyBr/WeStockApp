@@ -5,6 +5,7 @@ using System.Net;
 using WeStock.App.Auth;
 using WeStock.App.Dtos;
 using WeStock.App.Exceptions;
+using WeStock.Domain.Entities;
 using WeStock.Domain.Services;
 
 namespace WeStock.App.Controllers
@@ -23,15 +24,15 @@ namespace WeStock.App.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> Authenticate([FromBody] LoginDto loginDto)
         {
-            var user = await _userService.GetBy(loginDto.Username, loginDto.Password);
+            //var user = await _userService.GetBy(loginDto.Username, loginDto.Password);
 
-            if(user is null)
-            {
-                throw new ProblemDetailsException("Username or password is incorrect!", 
-                    HttpStatusCode.Unauthorized);
-            }
+            //if(user is null)
+            //{
+            //    throw new ProblemDetailsException("Username or password is incorrect!", 
+            //        HttpStatusCode.Unauthorized);
+            //}
 
-            var token = TokenHelper.Generate(user);
+            var token = TokenHelper.Generate(new UserClaims { Id = 1, DisplayName = "Gabriel", UserName = "sdsd" });
 
             return Ok(new { token = token });
         }

@@ -1,4 +1,5 @@
-﻿using WeStock.Domain.Enums;
+﻿using WeStock.Domain.Entities;
+using WeStock.Domain.Enums;
 using WeStock.Domain.Extensions;
 using WeStock.Domain.ExternalApis;
 

@@ -22,7 +22,10 @@ namespace WeStock.App
             services.AddCors();
             services.AddMvc();
 
-            services.AddSignalR();
+            services.AddSignalR(o =>
+            {
+                o.EnableDetailedErrors = true;
+            });
 
             services.AddAuthentication(options =>
             {
@@ -57,6 +60,8 @@ namespace WeStock.App
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseCors("AllowAll");
 
             app.UseHttpsRedirection();
 

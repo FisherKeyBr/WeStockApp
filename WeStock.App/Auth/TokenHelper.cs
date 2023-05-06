@@ -8,7 +8,7 @@ namespace WeStock.App.Auth
 {
     public class TokenHelper
     {
-        public static string Generate(User user)
+        public static string Generate(UserClaims user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.UTF8.GetBytes(TokenConfiguration.SECRET_KEY);
