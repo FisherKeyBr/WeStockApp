@@ -7,7 +7,7 @@ using WeStock.Domain.Entities;
 
 namespace WeStock.Domain.Repositories
 {
-    public interface IUserRepository : IBaseRepository
+    public interface IUserRepository : IBaseRepository<User>
     {
         Task<User> GetBy(string userName, string password);
     }

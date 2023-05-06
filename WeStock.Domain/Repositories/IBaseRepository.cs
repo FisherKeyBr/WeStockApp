@@ -1,8 +1,8 @@
 ﻿namespace WeStock.Domain.Repositories
 {
-    public interface IBaseRepository
+    public interface IBaseRepository<TBase>
     {
-        T GetById<T>(object id) where T : IEntity, new();
-        ICollection<T> GetAll<T>() where T : IEntity, new();
+        Task<TBase> GetById(object id);
+        Task<List<TBase>> GetAll();
     }
 }

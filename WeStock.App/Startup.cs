@@ -19,6 +19,7 @@ namespace WeStock.App
         {
             services.AddControllers();
             services.AddCors();
+            services.AddMvc();
 
             services.AddAuthentication(options =>
             {
@@ -39,6 +40,8 @@ namespace WeStock.App
                     ValidateAudience = false
                 };
             });
+
+            AppInjections.Register(services);
         }
 
         public void Configure(IApplicationBuilder app)
