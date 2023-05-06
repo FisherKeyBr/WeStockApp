@@ -5,7 +5,9 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeStock.App", "WeStock.App\WeStock.App.csproj", "{A748FFAD-C1A3-4D8F-ABAE-CE78D59F78E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeStock.Domain", "WeStock.Domain\WeStock.Domain.csproj", "{6BDC0EC1-F318-474B-960A-D71EB65103D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeStock.Domain", "WeStock.Domain\WeStock.Domain.csproj", "{6BDC0EC1-F318-474B-960A-D71EB65103D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeStock.Infra", "WeStock.Infra\WeStock.Infra.csproj", "{7DEE01AC-3239-4259-B709-946D14249F9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6BDC0EC1-F318-474B-960A-D71EB65103D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BDC0EC1-F318-474B-960A-D71EB65103D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BDC0EC1-F318-474B-960A-D71EB65103D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DEE01AC-3239-4259-B709-946D14249F9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DEE01AC-3239-4259-B709-946D14249F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DEE01AC-3239-4259-B709-946D14249F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DEE01AC-3239-4259-B709-946D14249F9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
