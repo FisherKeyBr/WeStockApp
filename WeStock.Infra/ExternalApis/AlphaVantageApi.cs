@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WeStock.Domain.ExternalApis;
+using WeStock.Domain.ExternalApis.Dtos;
+using WeStock.Infra.ExternalApis.Dtos;
 
 namespace WeStock.Infra.ExternalApis
 {
@@ -13,10 +15,10 @@ namespace WeStock.Infra.ExternalApis
 
         protected override string BaseUri { get => "https://www.alphavantage.co/"; }
 
-        public async Task<T> GetLastQuoteBy<T>(string symbol)
+        public async Task<IStockInfo> GetLastQuoteBy(string symbol)
         {
             var endpoint = $"query?function=GLOBAL_QUOTE&symbol={symbol}&apikey={API_KEY}";
-            return await Get<T>(endpoint);
+            return await Get<StockQuoteResult>(endpoint);
         }
     }
 }
