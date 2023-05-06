@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WeStock.Domain.ExternalApis;
 using WeStock.Domain.Repositories;
 using WeStock.Domain.Services;
 using WeStock.Infra;
+using WeStock.Infra.ExternalApis;
 using WeStock.Infra.Repositories;
 
 namespace WeStock.App
@@ -23,6 +25,7 @@ namespace WeStock.App
         private static void RegisterRepositories(IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IStockMarketApi, AlphaVantageApi>();
         }
 
         private static void RegisterServices(IServiceCollection services)
