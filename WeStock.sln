@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeStock.App", "WeStock.App\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeStock.Domain", "WeStock.Domain\WeStock.Domain.csproj", "{6BDC0EC1-F318-474B-960A-D71EB65103D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeStock.Infra", "WeStock.Infra\WeStock.Infra.csproj", "{7DEE01AC-3239-4259-B709-946D14249F9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeStock.Infra", "WeStock.Infra\WeStock.Infra.csproj", "{7DEE01AC-3239-4259-B709-946D14249F9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

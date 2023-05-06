@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using WeStock.App.Auth;
 using WeStock.App.Extensions;
+using WeStock.Infra;
 
 namespace WeStock.App
 {
@@ -20,6 +21,8 @@ namespace WeStock.App
             services.AddControllers();
             services.AddCors();
             services.AddMvc();
+
+            services.AddSignalR();
 
             services.AddAuthentication(options =>
             {
@@ -62,6 +65,7 @@ namespace WeStock.App
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHubClient>("/chat");
             });
         }
     }
