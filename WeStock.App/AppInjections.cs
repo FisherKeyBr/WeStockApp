@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore;
+using WeStock.App.Dtos;
+using WeStock.App.Validators;
 using WeStock.Domain.ExternalApis;
 using WeStock.Domain.Repositories;
 using WeStock.Domain.Services;
@@ -13,8 +16,15 @@ namespace WeStock.App
         public static void Register(IServiceCollection services)
         {
             RegisterDbContext(services);
+            RegisterValidators(services);
             RegisterServices(services);
             RegisterRepositories(services);
+        }
+
+        private static void RegisterValidators(IServiceCollection services)
+        {
+            services.AddScoped<IValidator<LoginDto>, LoginValidator>();
+            services.AddScoped<IValidator<SendMessageDto>, SendMessageValidator>();
         }
 
         private static void RegisterDbContext(IServiceCollection services)

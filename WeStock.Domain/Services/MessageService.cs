@@ -16,7 +16,7 @@ namespace WeStock.Domain.Services
             _messageRepository = messageRepository;
         }
 
-        public async Task Add(int userId, string message)
+        public async Task Add(long userId, string message)
         {
             var messageObject = new Message
             {

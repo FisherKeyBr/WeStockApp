@@ -32,6 +32,10 @@ namespace WeStock.App.Extensions
                         {
                             problemDetails = GetProblemDetails(context, HttpStatusCode.BadRequest, badHttpException);
                         }
+                        else if(exception is FluentValidation.ValidationException validationException)
+                        {
+                            problemDetails = GetProblemDetails(context, HttpStatusCode.Conflict, validationException);
+                        }
                         else
                         {
                             problemDetails = GetProblemDetails(context, HttpStatusCode.InternalServerError, exception);

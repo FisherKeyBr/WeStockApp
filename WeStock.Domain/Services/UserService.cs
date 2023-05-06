@@ -1,4 +1,5 @@
-﻿using WeStock.Domain.Entities;
+﻿using FluentValidation;
+using WeStock.Domain.Entities;
 using WeStock.Domain.Repositories;
 
 namespace WeStock.Domain.Services

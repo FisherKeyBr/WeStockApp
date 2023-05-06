@@ -8,7 +8,7 @@ namespace WeStock.Domain.Entities
 {
     public class Message : BaseEntity
     {
-        public int UserId { get; set; }
+        public long UserId { get; set; }
         public string Text { get; set; }
     }
 }
