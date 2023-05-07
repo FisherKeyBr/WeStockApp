@@ -19,5 +19,14 @@ namespace WeStock.Infra.Repositories
                 return await table.FirstOrDefaultAsync(x => x.UserName == userName && x.Password == password);
             });
         }
+
+        public async Task<User> GetByUsername(string userName)
+        {
+            return await Execute(async dbCtx =>
+            {
+                var table = GetTable();
+                return await table.FirstOrDefaultAsync(x => x.UserName == userName);
+            });
+        }
     }
 }

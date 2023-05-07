@@ -18,11 +18,12 @@ namespace WeStock.Infra
             _chatBotService = chatBotService;
         }
 
-        public async Task SendMessage(string message)
+        public async Task SendMessage(string displayName, string message)
         {
-            Console.WriteLine(message);
-            var result = await _chatBotService.GetClientMessage(message);
-            await Clients.All.SendMessage(result);
+            var result = await _chatBotService.GetCommandResult(message);
+            await Clients.All.SendMessage(displayName, result);
         }
+
+        public string GetConnectionId => Context.ConnectionId;
     }
 }

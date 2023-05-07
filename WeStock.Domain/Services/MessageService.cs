@@ -21,7 +21,7 @@ namespace WeStock.Domain.Services
             var messageObject = new Message
             {
                 Text = message,
-                UserId = userId
+                FromUserId = userId
             };
 
             await _messageRepository.Add(messageObject);

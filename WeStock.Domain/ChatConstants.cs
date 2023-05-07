@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace WeStock.Domain
 {
-    public interface IChatHubClient
+    public class ChatConstants
     {
-        Task SendMessage(string displayName, string message);
+        public const string BOT_NAME = "Mr. WeStockYouBot";
     }
 }

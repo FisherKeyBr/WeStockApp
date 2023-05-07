@@ -23,8 +23,4 @@
     <ProjectReference Include="..\WeStock.Infra\WeStock.Infra.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
 </Project>

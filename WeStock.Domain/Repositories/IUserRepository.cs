@@ -10,5 +10,6 @@ namespace WeStock.Domain.Repositories
     public interface IUserRepository : IBaseRepository<User>
     {
         Task<User> GetBy(string userName, string password);
+        Task<User> GetByUsername(string userName);
     }
 }

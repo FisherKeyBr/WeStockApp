@@ -14,7 +14,7 @@ namespace WeStock.Domain.Services
             _stockMarketApi = stockMarketApi;
         }
 
-        public async Task<string> GetClientMessage(string message)
+        public async Task<string> GetCommandResult(string message)
         {
             var result = await GetMessage(message);
             return result;
@@ -22,17 +22,7 @@ namespace WeStock.Domain.Services
 
         private async Task<string> GetMessage(string message)
         {
-            var messageType = GetMessageType(message);
-
-            switch (messageType)
-            {
-                case MessageTypeEnum.NORMAL:
-                    return await Task.FromResult(message);
-                case MessageTypeEnum.COMMAND:
-                    return await ExecuteCommand(message);
-                default:
-                    throw new IndexOutOfRangeException("Message type not supported!");
-            }
+            return await ExecuteCommand(message);
         }
 
         private async Task<string> ExecuteCommand(string message)
@@ -50,7 +40,7 @@ namespace WeStock.Domain.Services
             }   
         }
 
-        private MessageTypeEnum GetMessageType(string message)
+        public MessageTypeEnum GetMessageType(string message)
         {
             if (CommandTypeHelper.IsCommand(message))
             {
