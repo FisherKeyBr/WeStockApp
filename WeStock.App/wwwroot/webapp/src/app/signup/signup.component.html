@@ -1,1 +1,26 @@
-<p>signup works!</p>
+<div class="wrapper">
+  <div class="logo">
+    <img src="https://w7.pngwing.com/pngs/343/1004/png-transparent-computer-icons-online-chat-livechat-chat-miscellaneous-angle-text-thumbnail.png" alt="">
+  </div>
+  <div class="text-center mt-4 name">
+    Signup 
+  </div>
+  <form class="p-3 mt-3">
+    <div class="form-field d-flex align-items-center">
+      <span class="far fa-user"></span>
+      <input [(ngModel)]="formData.userName" type="text" name="userName" id="userName" placeholder="Username">
+    </div>
+    <div class="form-field d-flex align-items-center">
+      <span class="fas fa-key"></span>
+      <input [(ngModel)]="formData.password" type="password" name="password" id="pwd" placeholder="Password">
+    </div>
+    <div class="form-field d-flex align-items-center">
+      <span class="fas fa-key"></span>
+      <input [(ngModel)]="formData.displayName" type="text" name="displayName" id="disp" placeholder="Display name">
+    </div>
+    <button (click)="onRegisterClick()" class="btn mt-3">Register</button>
+  </form>
+  <div class="text-center fs-6">
+    <a href="/login">Cancel</a>
+  </div>
+</div>
