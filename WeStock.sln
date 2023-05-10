@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeStock.Domain", "WeStock.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeStock.Infra", "WeStock.Infra\WeStock.Infra.csproj", "{7DEE01AC-3239-4259-B709-946D14249F9E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeStock.Bot", "WeStock.Bot\WeStock.Bot.csproj", "{0996F9A3-7BE4-4DF8-848E-2517D8899DF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7DEE01AC-3239-4259-B709-946D14249F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DEE01AC-3239-4259-B709-946D14249F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DEE01AC-3239-4259-B709-946D14249F9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0996F9A3-7BE4-4DF8-848E-2517D8899DF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0996F9A3-7BE4-4DF8-848E-2517D8899DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0996F9A3-7BE4-4DF8-848E-2517D8899DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0996F9A3-7BE4-4DF8-848E-2517D8899DF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

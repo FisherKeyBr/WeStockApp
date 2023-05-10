@@ -1,7 +1,10 @@
 ﻿using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using RabbitMQ.Client;
+using System.Text;
 using WeStock.App.Dtos;
 using WeStock.App.Validators;
+using WeStock.Domain;
 using WeStock.Domain.Entities;
 using WeStock.Domain.ExternalApis;
 using WeStock.Domain.Repositories;
@@ -20,6 +23,21 @@ namespace WeStock.App
             RegisterValidators(services);
             RegisterServices(services);
             RegisterRepositories(services);
+
+            RegisterRabbitMQ(services);
+        }
+
+        private static void RegisterRabbitMQ(IServiceCollection services)
+        {   
+            services.AddScoped<IPublishMessageHandler>(x =>
+            {
+                var factory = new ConnectionFactory { HostName = MessageBrokerConstants.HOST };
+                var connection = factory.CreateConnection();
+                
+                return new PublishMessageHandler(connection);
+            });
+
+            services.AddScoped<AppQueueEventHandlers>();
         }
 
         private static void RegisterValidators(IServiceCollection services)

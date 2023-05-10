@@ -11,7 +11,7 @@ export class UserService {
   }
 
   register(formData: any) {
-    const uri = "/api/User";
+    const uri = "/api/User/newUser";
     return this.http.post<any>(uri, formData).toPromise();
   }
 }

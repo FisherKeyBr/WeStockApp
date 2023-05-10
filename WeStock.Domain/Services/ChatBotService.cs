@@ -37,7 +37,7 @@ namespace WeStock.Domain.Services
                     return lastQuoteSymbol?.GetFormattedMessage()!;
                 default:
                     throw new IndexOutOfRangeException($"Command not supported!");
-            }   
+            }
         }
 
         public MessageTypeEnum GetMessageType(string message)

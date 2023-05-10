@@ -1,5 +1,9 @@
 {
-  "/api": {
+  //"/api": {
+  //  "target": "https://localhost:7291",
+  //  "secure": false
+  //},
+  "/": {
     "target": "https://localhost:7291",
     "secure": false
   }

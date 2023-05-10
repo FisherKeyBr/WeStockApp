@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 using WeStock.Domain.Enums;
 using WeStock.Domain.ExternalApis.Dtos;
 
@@ -37,6 +32,7 @@ namespace WeStock.Domain.Extensions
         public static string ExtractSymbol(this CommandTypeEnum enumm, string message)
         {
             var match = _regexCommandBeforeSpace.Match(message);
+
             return match.Success
                 ? match.Value.Replace(enumm.GetDescription(), string.Empty)
                 : string.Empty;

@@ -6,8 +6,10 @@ namespace WeStock.Domain.Enums
 {
     public enum CommandTypeEnum
     {
+        NONE = 0,
+
         [Description("/stock=")]
-        FETCH_STOCK_QUOTE = 0
+        FETCH_STOCK_QUOTE = 1
     }
 
     public class CommandTypeHelper
@@ -18,7 +20,8 @@ namespace WeStock.Domain.Enums
                 .Cast<CommandTypeEnum>();
 
             var found = GetBy(message);
-            return found != null;
+
+            return found != CommandTypeEnum.NONE;
         }
 
         public static CommandTypeEnum GetBy(string message)

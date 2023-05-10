@@ -18,7 +18,8 @@ namespace WeStock.Infra.ExternalApis
         public async Task<IStockInfo> GetLastQuoteBy(string symbol)
         {
             var endpoint = $"query?function=GLOBAL_QUOTE&symbol={symbol}&apikey={API_KEY}";
-            return await Get<StockQuoteResult>(endpoint);
+            var a = await Get<StockQuoteRoot>(endpoint);
+            return a.GlobalQuote;
         }
     }
 }

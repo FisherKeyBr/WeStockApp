@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.IdentityModel.Tokens;
+using RabbitMQ.Client;
 using System.Text;
 using WeStock.App.Auth;
 using WeStock.App.Extensions;
+using WeStock.Domain;
 using WeStock.Infra;
 
 namespace WeStock.App
@@ -19,7 +20,15 @@ namespace WeStock.App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddCors();
+
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowAnyOrigin();
+            }));
+
             services.AddMvc();
 
             services.AddSignalR(o =>
@@ -48,21 +57,28 @@ namespace WeStock.App
             });
 
             AppInjections.Register(services);
+
+            var factory = new ConnectionFactory { HostName = MessageBrokerConstants.HOST };
+            using var connection = factory.CreateConnection();
+
+            var serviceProvider = services.BuildServiceProvider();
+            var queueEventHandler = serviceProvider.GetRequiredService<AppQueueEventHandlers>();
+            queueEventHandler.Register(connection);
         }
 
         public void Configure(IApplicationBuilder app)
         {
             app.UseDefaultFiles();
             app.UseRouting();
+            app.UseCors("CorsPolicy");
+
             app.UseStaticFiles();
 
             app.UseFileServer();
 
             app.UseAuthentication();
             app.UseAuthorization();
-
-            app.UseCors("AllowAll");
-
+            
             app.UseHttpsRedirection();
 
             app.UseProblemDetailsExceptionHandler();

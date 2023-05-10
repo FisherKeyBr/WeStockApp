@@ -1,9 +1,12 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeStock.Domain.Extensions;
+using WeStock.Infra.ExternalApis.Dtos;
 
 namespace WeStock.Infra.ExternalApis
 {
@@ -19,6 +22,7 @@ namespace WeStock.Infra.ExternalApis
             var request = new RestRequest(endpoint);
             
             var response = await client.GetAsync<T>(request);
+
             return response!;
         }
     }
